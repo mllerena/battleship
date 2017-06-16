@@ -73,6 +73,18 @@ public class TableroParametrosUi extends JFrame implements ActionListener {
         this.setSize(620, 620);
 
     }
+    
+    public TableroParametrosUi(Jugador j1, Jugador j2, Tablero t) {
+        jugador1=j1;
+        jugador2=j2;    
+        
+        tablero = tablero;    
+        
+        this.setTitle("Parametros de jugadores");
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setSize(620, 620);
+
+    }
 
     public void cargarBarcosInicial(int numeroJugador) {
         
@@ -84,11 +96,6 @@ public class TableroParametrosUi extends JFrame implements ActionListener {
 
         getContentPane().setLayout(new BorderLayout());
 
-        JPanel titlePanel = new JPanel();
-        //titlePanel.add(new JLabel("Parametros para jugador : " + nombre)); 
-        titlePanel.add(new JLabel("Parametros para jugador: " + numeroJugador));
-
-        //getContentPane().add(titlePanel, BorderLayout.PAGE_START);
         JPanel formPanel = new JPanel();
 
         formPanel.setSize(300, 20);
@@ -409,7 +416,20 @@ public class TableroParametrosUi extends JFrame implements ActionListener {
                     
                     JOptionPane.showMessageDialog(null, "Usted a culminado el ingreso de sus barcos. Por favor ahora es el turno del jugador 2");
                     
-                    cargarBarcosInicial(2);
+                    setVisible(false);
+                    
+                    TableroParametrosUi  tableroParametos = new TableroParametrosUi(jugador1, jugador2, tablero);
+                    tableroParametos.cargarBarcosInicial(2);
+                    tableroParametos.setVisible(true);
+                    
+                    //System.exit(0);
+                    
+                    
+                    
+                    
+                    //cargarBarcosInicial(2);
+                    
+                    
                 }
                 
                 
