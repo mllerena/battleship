@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 import jugar.ProcesoDisparo;
@@ -126,13 +127,15 @@ public class TableroUi extends JFrame implements ActionListener {
                 //btn.setSize(10, 10);
                 
                 //btn.setLayout(new FlowLayout());
-                btn.setBackground(null);
+                //btn.setBackground(null);
                 
-                btn.setBorder(null);
+                //btn.setBorder(null);
                 
-                btn.setBorderPainted(false);
+                //btn.setBorderPainted(false);
                 
-                btn.setMargin(new Insets(0,0,0,0));
+                //btn.setMargin(new Insets(0,0,0,0));
+                btn.setBorder(new LineBorder(Color.decode("#8298ad")));
+                btn.setBackground(Color.decode("#161e3d"));
                 
                 //btn.setContentAreaFilled(false);
                 
@@ -202,6 +205,9 @@ public class TableroUi extends JFrame implements ActionListener {
                 btn.setName(fila + "," + columna);
                 btn.setSize(20, 20);
                 btn.addActionListener(this);
+                
+                btn.setBorder(new LineBorder(Color.decode("#8298ad")));
+                btn.setBackground(Color.decode("#161e3d"));
 
                 //P, B, L
                 if (jugador1.getDisparosCorrectos()[fila][columna].equals("P")) {
@@ -209,7 +215,7 @@ public class TableroUi extends JFrame implements ActionListener {
                 }
 
                 if (jugador1.getDisparosCorrectos()[fila][columna].equals("B")) {
-                    btn.setBackground(Color.BLACK);
+                    btn.setBackground(Color.WHITE);
                 }
 
                 if (jugador1.getDisparosCorrectos()[fila][columna].equals("L")) {
@@ -315,6 +321,9 @@ public class TableroUi extends JFrame implements ActionListener {
                     }
                     
                     celda.setIcon(new ImageIcon(img));
+                    //#161e3d
+                    
+                    
                 } else if (barco instanceof Buque) {
                     
                     
@@ -331,6 +340,7 @@ public class TableroUi extends JFrame implements ActionListener {
                     //buque_01_opt
                     
                     celda.setIcon(new ImageIcon(img));
+                    
                 } else if (barco instanceof Lancha) {
                     img = ImageIO.read(getClass().getClassLoader().getResource("recursos/lancha_opt.png"));
                     celda.setIcon(new ImageIcon(img));
@@ -447,7 +457,7 @@ public class TableroUi extends JFrame implements ActionListener {
                             } else if (barco instanceof Buque) {
                                 System.out.println("Tocado un Buque");
                                 tocado = true;
-                                btn.setBackground(Color.BLACK);
+                                btn.setBackground(Color.WHITE);
 
                                 jugador1.getDisparosCorrectos()[fila][columna] = "B";
                                 
