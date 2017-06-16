@@ -12,17 +12,19 @@ import models.Lancha;
 import models.PortaAvion;
 import Tablero.TableroUi;
 
+import Tablero.TableroParametrosUi;
+import javax.swing.JOptionPane;
+
 public class Main {
 
  
 	public static void main(String[] args) {
 		
-		Jugador jugador1=new Jugador("Galo");
-		Jugador jugador2=new Jugador("Lorena");
+		Jugador jugador1=new Jugador("Jugador1");
+		Jugador jugador2=new Jugador("Jugador2");
                 
-               
-		
 		Tablero tablero = new Tablero(jugador1,jugador2);
+                
 		Barco portavion1=new PortaAvion("A1", Ubicacion.horizontal);
                 Barco portavion2=new PortaAvion("D5", Ubicacion.vertical);
                 Barco portavion3=new PortaAvion("B5", Ubicacion.vertical);
@@ -42,6 +44,7 @@ public class Main {
                 Barco lancha7=new Lancha("I10", Ubicacion.horizontal);
                 Barco lancha8=new Lancha("J1", Ubicacion.vertical);
                 
+                /*
 		tablero.setBarco(jugador1,portavion1);
 		tablero.setBarco(jugador1,portavion2);
 		tablero.setBarco(jugador1,buque1);
@@ -56,11 +59,12 @@ public class Main {
                 tablero.setBarco(jugador2,portavion4);
                 tablero.setBarco(jugador2,buque4);
                 tablero.setBarco(jugador2,buque5);
-                //tablero.setBarco(jugador2,buque6);
+                
                 tablero.setBarco(jugador2,lancha5);
                 tablero.setBarco(jugador2,lancha6);
                 tablero.setBarco(jugador2,lancha7);
                 tablero.setBarco(jugador2,lancha8);
+                */
                 
                 
                 for(int i=0;i<jugador1.getUbicacionBarcos().length;i++){
@@ -72,25 +76,23 @@ public class Main {
                 
                 if(portavion1.estaVivo())
                     System.out.println("Esta vivooooooo");
+               
+                int numeroJugador = 1;
                 
+                //String nombre = JOptionPane.showInputDialog("Escribe tu nombre:");
+                
+                TableroParametrosUi  tableroParametos = new TableroParametrosUi();
+                tableroParametos.cargarBarcosInicial(numeroJugador);
+                tableroParametos.setVisible(true);
+                
+                //esto es para ya jugar
+                /* 
                 TableroUi tableroUi=new TableroUi();
-                
                 tableroUi.cargarBarcosInicial(jugador1,jugador2);
-                
-		//tjagador1.setBarcos(jugador1.getBarcos());
-                
-                //guardo datos del contrincante
-                //tjagador1.setContrincante(jugador2.getBarcos());
-                
 		tableroUi.setVisible(true);
-		
-                /*
-		TableroUi tjagador2=new TableroUi(jugador2.getNombre());
-		tjagador2.setBarcos(jugador2.getBarcos());
-                //guardo datos del contrincante
-                tjagador2.setContrincante(jugador1.getBarcos());
-		//tjagador2.setVisible(true);
                 */
+		
+                
                 
                 
 	}
