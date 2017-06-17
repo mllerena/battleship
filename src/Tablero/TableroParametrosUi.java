@@ -78,7 +78,7 @@ public class TableroParametrosUi extends JFrame implements ActionListener {
         jugador1=j1;
         jugador2=j2;    
         
-        tablero = tablero;    
+        tablero = t;    
         
         this.setTitle("Parametros de jugadores");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
