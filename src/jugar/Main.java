@@ -24,39 +24,39 @@ public class Main {
             @Override
             public void run() {
 
-                try {
-                    Player apl = new Player(
-                            getClass().getClassLoader().getResourceAsStream("recursos/background.mp3")
-                    );
+                while (true) {
+                    try {
+                        Player apl = new Player(
+                                getClass().getClassLoader().getResourceAsStream("recursos/background.mp3")
+                        );
 
-                    apl.play();
+                        apl.play();
 
-                } catch (JavaLayerException ex) {
-                    Logger.getLogger(TableroUi.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (Exception ex) {
-                    Logger.getLogger(TableroUi.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (JavaLayerException ex) {
+                        Logger.getLogger(TableroUi.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (Exception ex) {
+                        Logger.getLogger(TableroUi.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
             }
 
         };
-        
-        
+
         Runnable procesoJuego = new Runnable() {
             @Override
             public void run() {
                 TableroParametrosUi tableroParametos = new TableroParametrosUi();
                 tableroParametos.cargarBarcosInicial(1);
                 tableroParametos.setVisible(true);
-                
+
             }
-        
+
         };
-        
+
         new Thread(procesoSonidoFondo).start();
         new Thread(procesoJuego).start();
 
-        
     }
 
 }
